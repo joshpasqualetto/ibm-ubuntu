@@ -1,0 +1,8 @@
+# Chef Solo cookbook for converting an Ubuntu VM into an image that will import in IBM SmartCloud Enterprise
+
+** Notes
+  - Must be virtio enable (Ubuntu 10.04+) both networking and disk.
+  - Must have ext3 (Have not tested ext4) partitions
+  - vda1 must be /boot, vda2 must be /, No swap, use swap files.
+  - Either use qemu-img to upload a qcow2 (If not already), OR 7zip raw file and then decompress when up. Either way it must be raw on the import
+  - See http://www.ibm.com/developerworks/cloud/library/cl-importlinuxOSimage/index.html
