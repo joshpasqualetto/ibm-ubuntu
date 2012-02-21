@@ -1,0 +1,10 @@
+IP=$(sed -n 's/.*IPADDR=\(.*\)/\1/p' /etc/sysconfig/network-scripts/ifcfg-eth0|cut -c1-64)
+NETMASK=$( sed -n 's/.*NETMASK=\(.*\)/\1/p' /etc/sysconfig/network-scripts/ifcfg-eth0| cut -c1-64)
+GATEWAY=$( sed -n 's/.*GATEWAY=\(.*\)/\1/p' /etc/sysconfig/network-scripts/ifcfg-eth0| cut -c1-64)
+HW=$(sed -n 's/.*HWADDR=\(.*\)/\1/p' /etc/sysconfig/network-scripts/ifcfg-eth0|cut -c1-64)
+cp /etc/init.d/ubuntu_interfaces_0 /etc/init.d/ubuntu_interfaces
+sed -i 's/IP/'$IP'/'  /etc/init.d/ubuntu_interfaces
+sed -i 's/MASK/'$NETMASK'/g'  /etc/init.d/ubuntu_interfaces
+sed -i 's/GATEWAY/'$GATEWAY'/g'  /etc/init.d/ubuntu_interfaces
+mv /etc/init.d/ubuntu_interfaces /etc/network/interfaces
+/etc/init.d/networking restart
