@@ -1,4 +1,4 @@
 file_cache_path "/var/chef-solo"
-cookbook_path "/var/chef-solo/sniperd-ibm-ubuntu-2f78cbc/cookbooks"
+cookbook_path "/var/chef-solo/cookbooks"
 json_attribs "https://raw.github.com/sniperd/ibm-ubuntu/master/node.json"
-recipe_url "https://github.com/sniperd/ibm-ubuntu/tarball/master"
+recipe_url "https://github.com/sniperd/ibm-ubuntu/blob/master/cookbooks.tgz"
