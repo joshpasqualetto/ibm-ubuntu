@@ -10,6 +10,7 @@
 package "acpid"
 package "openssh-server"
 package "rcconf"
+gem_package "ruby-shadow"
 
 directory "/etc/sysconfig/network-scripts/" do
   mode "0755"

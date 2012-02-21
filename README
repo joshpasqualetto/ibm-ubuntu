@@ -6,3 +6,8 @@
   - vda1 must be /boot, vda2 must be /, No swap, use swap files.
   - Either use qemu-img to upload a qcow2 (If not already), OR 7zip raw file and then decompress when up. Either way it must be raw on the import
   - See http://www.ibm.com/developerworks/cloud/library/cl-importlinuxOSimage/index.html
+  - This cookbook will lock you out of idcuser if you use password auth (ssh keys only)
+  - if you have any modifications to /etc/default/grub, merge them in before running this
+
+
+sudo chef-solo -c https://raw.github.com/sniperd/ibm-ubuntu/master/solo.rb
