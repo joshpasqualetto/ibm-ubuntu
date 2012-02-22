@@ -29,6 +29,15 @@ cookbook_file "/etc/init.d/smartcloud" do
   mode "0755"
 end
 
+cookbook_file "/etc/sysconfig/network-scripts/ifcfg-eth0" do
+  mode "0644"
+end
+
+cookbook_file "/etc/init.d/ubuntu_interfaces_0" do
+  mode "0755"
+  action :create_if_missing
+end
+
 execute "smartcloud_on" do
   command "rcconf --on smartcloud"
   not_if "rcconf --list|grep 'smartcloud on'"
@@ -57,4 +66,9 @@ end
 execute "idcuser_into_sudoers" do
   command "echo 'idcuser ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers"
   not_if "grep idcuser /etc/sudoers"
+end
+
+execute "modify_init" do
+  command "sed -e 's/DEFAULT_RUNLEVEL=2/DEFAULT_RUNLEVEL=3/g' -i'' /etc/init/rc-sysinit.conf"
+  not_if 'grep DEFAULT_RUNLEVEL=3 /etc/init/rc-sysinit.conf'
 end
