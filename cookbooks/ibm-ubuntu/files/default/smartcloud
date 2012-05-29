@@ -8,3 +8,4 @@ sed -i 's/MASK/'$NETMASK'/g'  /etc/init.d/ubuntu_interfaces
 sed -i 's/GATEWAY/'$GATEWAY'/g'  /etc/init.d/ubuntu_interfaces
 mv /etc/init.d/ubuntu_interfaces /etc/network/interfaces
 /etc/init.d/networking restart
+modprobe acpiphp
