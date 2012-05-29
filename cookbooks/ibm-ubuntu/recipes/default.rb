@@ -9,6 +9,7 @@
 
 package "acpid"
 package "openssh-server"
+package "dialog"
 package "rcconf"
 gem_package "ruby-shadow"
 
