@@ -62,7 +62,7 @@ user "idcuser" do
 end
 
 directory "/home/idcuser/.ssh/" do
-  mode "0600"
+  mode "0700"
   owner "idcuser"
   group "idcuser"
 end
