@@ -11,6 +11,7 @@ package "acpid"
 package "openssh-server"
 package "dialog"
 package "rcconf"
+
 gem_package "ruby-shadow"
 
 directory "/etc/sysconfig/network-scripts/" do
@@ -62,6 +63,7 @@ end
 
 directory "/home/idcuser/.ssh/" do
   owner "idcuser"
+  group "idcuser"
 end
 
 execute "idcuser_into_sudoers" do
